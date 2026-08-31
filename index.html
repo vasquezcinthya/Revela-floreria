@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVELA Florería Experiencial | Arequipa</title>
+    <meta name="description" content="Florería experiencial en Arequipa. Flores de autor, ambientación y fotografía artística para convertir celebraciones especiales en recuerdos inolvidables.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. VARIABLES & RESET
+           ========================================================================== */
+        :root {
+            --c-green: #092729;
+            --c-gold: #e6b372;
+            --c-sand: #fbf0ea;
+            --c-white: #ffffff;
+            --c-black: #000000;
+            --c-gray: #f5f5f5;
+            
+            --f-sans: 'Inter', sans-serif;
+            --f-serif: 'Playfair Display', serif;
+            
+            --header-h: 80px;
+            --spacing-section: clamp(4rem, 8vw, 8rem);
+            --container-w: 1280px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--f-sans);
+            background-color: var(--c-sand);
+            color: var(--c-green);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: inherit;
+        }
+
+        /* ==========================================================================
+           2. TYPOGRAPHY & UTILITIES
+           ========================================================================== */
+        h1, h2, h3, h4, .title-font {
+            font-family: var(--f-sans);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        h1 { font-size: clamp(2.5rem, 6vw, 5.5rem); }
+        h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+        h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+        
+        .text-body { font-size: clamp(0.95rem, 1.2vw, 1.125rem); font-weight: 300; }
+        .text-small { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        
+        .serif { font-family: var(--f-serif); font-weight: 400; font-style: italic; }
+        .gold-text { color: var(--c-gold); }
+        .white-text { color: var(--c-white); }
+        
+        .container {
+            width: 90%;
+            max-width: var(--container-w);
+            margin: 0 auto;
+        }
+
+        .bg-green { background-color: var(--c-green); color: var(--c-white); }
+        .bg-sand { background-color: var(--c-sand); color: var(--c-green); }
+        .bg-black { background-color: var(--c-black); color: var(--c-white); }
+        
+        .section-pad { padding: var(--spacing-section) 0; }
+        .text-center { text-align: center; }
+
+        /* Placeholders Editoriales */
+        .ph-img {
+            background-color: #2a2a2a;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .ph-img::before {
+            content: attr(data-label);
+            position: absolute;
+            font-family: var(--f-sans);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            z-index: 1;
+            text-align: center;
+            padding: 1rem;
+        }
+        .ph-img::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, rgba(9, 39, 41, 0.4), rgba(0,0,0,0.1));
+        }
+        .ph-sand { background-color: #e8dbd1; }
+        .ph-sand::before { color: rgba(9, 39, 41, 0.4); }
+
+        /* Botones */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.4s ease;
+            border-radius: 2px;
+        }
+        .btn-gold {
+            background-color: var(--c-gold);
+            color: var(--c-green);
+        }
+        .btn-gold:hover {
+            background-color: #d4a362;
+            transform: translateY(-2px);
+        }
+        .btn-green {
+            background-color: var(--c-green);
+            color: var(--c-white);
+        }
+        .btn-green:hover {
+            background-color: #0d383b;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            border: 1px solid var(--c-gold);
+            color: var(--c-white);
+        }
+        .btn-outline:hover {
+            background-color: var(--c-gold);
+            color: var(--c-green);
+        }
+        .btn .arrow { transition: transform 0.3s ease; }
+        .btn:hover .arrow { transform: translateX(5px); }
+
+        /* Animaciones */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+
+        /* Layouts base */
+        .grid-2 { display: grid; grid-template-columns: 1fr; gap: 3rem; }
+        @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+        
+        /* Ocultar secciones (SPA Logic) */
+        section.page-section { display: none; }
+        section.page-section.active { display: block; animation: fadeInPage 0.6s ease forwards; }
+        
+        @keyframes fadeInPage {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* ==========================================================================
+           3. HEADER & NAV
+           ========================================================================== */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            height: var(--header-h);
+            z-index: 100;
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+        }
+        header.scrolled {
+            background-color: rgba(9, 39, 41, 0.95);
+            backdrop-filter: blur(10px);
+            color: var(--c-white);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        header.light-mode:not(.scrolled) { color: var(--c-green); }
+        header:not(.light-mode):not(.scrolled) { color: var(--c-white); }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 5%;
+        }
+        .logo-wrap { display: flex; flex-direction: column; }
+        .logo { font-size: 1.5rem; letter-spacing: 0.2em; font-weight: 500; }
+        .logo-sub { font-size: 0.6rem; letter-spacing: 0.15em; opacity: 0.7; }
+        
+        .desktop-nav { display: none; }
+        .desktop-nav ul { display: flex; gap: 2.5rem; }
+        .desktop-nav a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; position: relative; }
+        .desktop-nav a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+            background-color: var(--c-gold); transition: width 0.3s ease;
+        }
+        .desktop-nav a:hover::after, .desktop-nav a.active::after { width: 100%; }
+
+        .header-cta { display: none; }
+        
+        .hamburger {
+            display: block; width: 30px; height: 20px; position: relative; cursor: pointer; z-index: 101;
+        }
+        .hamburger span {
+            position: absolute; width: 100%; height: 1px; background-color: currentColor;
+            transition: all 0.3s ease;
+        }
+        .hamburger span:nth-child(1) { top: 0; }
+        .hamburger span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .hamburger span:nth-child(3) { bottom: 0; }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg); top: 9px; background-color: var(--c-green); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg); bottom: 10px; background-color: var(--c-green); }
+
+        .mobile-nav {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: var(--c-sand); color: var(--c-green);
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.4s ease; z-index: 100;
+        }
+        .mobile-nav.active { opacity: 1; pointer-events: all; }
+        .mobile-nav ul { text-align: center; display: flex; flex-direction: column; gap: 2rem; }
+        .mobile-nav a { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .mobile-nav .btn { margin-top: 2rem; }
+
+        @media (min-width: 1024px) {
+            .hamburger { display: none; }
+            .desktop-nav { display: block; }
+            .header-cta { display: inline-flex; padding: 0.6rem 1.5rem; border: 1px solid currentColor; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 2px; transition: all 0.3s; }
+            .header-cta:hover { background-color: var(--c-gold); color: var(--c-green); border-color: var(--c-gold); }
+        }
+
+        /* ==========================================================================
+           4. PAGE: INICIO
+           ========================================================================== */
+        .hero {
+            height: 100vh; min-height: 600px;
+            display: flex; align-items: center; position: relative;
+            background-color: var(--c-green);
+            padding-top: var(--header-h);
+        }
+        .hero-bg {
+            position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: 0;
+            display: flex; justify-content: flex-end;
+        }
+        .hero-ph { width: 100%; height: 100%; }
+        @media (min-width: 1024px) { .hero-ph { width: 55%; } }
+        
+        .hero-content {
+            position: relative; z-index: 2; width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 5%;
+        }
+        @media (min-width: 1024px) { .hero-content { width: 50%; padding-left: 0; margin: 0 0 0 5%; } }
+        
+        .hero h1 { margin: 1rem 0 2rem; }
+        .hero p { max-width: 450px; margin-bottom: 2.5rem; opacity: 0.9; }
+        .hero-btns { display: flex; flex-wrap: wrap; gap: 1rem; }
+        
+        .scroll-indicator {
+            position: absolute; bottom: 30px; left: 5%;
+            display: flex; align-items: center; gap: 1rem; font-size: 0.7rem; letter-spacing: 0.1em;
+            text-transform: uppercase; opacity: 0.6; z-index: 2;
+        }
+        .scroll-line { width: 40px; height: 1px; background-color: currentColor; }
+
+        /* Editorial Block */
+        .ed-block-wrap { display: flex; flex-direction: column; gap: 3rem; align-items: center; }
+        .ed-text { max-width: 500px; }
+        .ed-text h2 { margin: 1rem 0; }
+        .ed-list { margin-top: 2rem; }
+        .ed-list li {
+            border-top: 1px solid rgba(9, 39, 41, 0.1); padding: 1rem 0;
+            display: flex; gap: 1rem; align-items: baseline;
+        }
+        .ed-list .num { font-size: 0.8rem; font-family: var(--f-serif); color: var(--c-gold); }
+        
+        .ed-images { position: relative; width: 100%; max-width: 500px; height: 600px; }
+        .ed-img-1 { width: 80%; height: 100%; position: absolute; right: 0; top: 0; }
+        .ed-img-2 { width: 50%; height: 50%; position: absolute; left: 0; bottom: -10%; z-index: 2; border: 10px solid var(--c-sand); }
+        
+        @media (min-width: 1024px) {
+            .ed-block-wrap { flex-direction: row; justify-content: space-between; gap: 5rem; }
+            .ed-text, .ed-images { width: 45%; }
+        }
+
+        /* Experiencias Preview */
+        .exp-cards { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; }
+        @media (min-width: 768px) { .exp-cards { grid-template-columns: repeat(3, 1fr); } }
+        .exp-card {
+            border: 1px solid rgba(255,255,255,0.1); padding: 2rem;
+            display: flex; flex-direction: column; gap: 1.5rem; transition: transform 0.4s;
+        }
+        .exp-card:hover { transform: translateY(-5px); border-color: var(--c-gold); }
+        .exp-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+        .exp-card p { opacity: 0.7; font-size: 0.9rem; margin-bottom: auto; }
+        .exp-link { color: var(--c-gold); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; display: inline-flex; align-items: center; gap: 0.5rem; }
+
+        /* ==========================================================================
+           5. PAGE: NOSOTROS
+           ========================================================================== */
+        .page-header { padding-top: calc(var(--header-h) + 4rem); padding-bottom: 4rem; }
+        
+        .story-layout { display: flex; flex-direction: column; gap: 4rem; }
+        @media (min-width: 1024px) {
+            .story-layout { flex-direction: row; align-items: center; }
+            .story-layout > div { flex: 1; }
+            .story-layout .text-col { padding-right: 4rem; position: relative; }
+        }
+        .big-number {
+            font-family: var(--f-serif); font-size: clamp(6rem, 15vw, 12rem);
+            color: rgba(9, 39, 41, 0.05); position: absolute; top: -50px; left: -20px; z-index: 0; line-height: 1;
+        }
+        .story-text { position: relative; z-index: 1; }
+        .story-img-wrap { height: 700px; }
+        
+        .mission-vision { display: grid; grid-template-columns: 1fr; }
+        .mv-block { padding: var(--spacing-section) 5%; position: relative; }
+        .mv-block .container { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
+        .mv-img { position: absolute; width: 40%; height: 60%; top: 20%; right: 5%; opacity: 0.3; }
+        .mv-img.left { right: auto; left: 5%; }
+        
+        .manifesto { display: flex; align-items: center; justify-content: center; min-height: 60vh; text-align: center; }
+
+        /* ==========================================================================
+           6. PAGE: SERVICIOS
+           ========================================================================== */
+        .service-item {
+            display: flex; flex-direction: column; gap: 2rem; margin-bottom: var(--spacing-section);
+            align-items: center;
+        }
+        .service-img { width: 100%; height: 500px; }
+        .service-info { width: 100%; padding: 2rem 0; }
+        .service-num { font-family: var(--f-serif); font-size: 2rem; color: var(--c-gold); margin-bottom: 1rem; }
+        
+        @media (min-width: 768px) {
+            .service-item { flex-direction: row; gap: 4rem; }
+            .service-item:nth-child(even) { flex-direction: row-reverse; }
+            .service-img, .service-info { width: 50%; }
+        }
+
+        /* ==========================================================================
+           7. PAGE: EXPERIENCIAS (Precios)
+           ========================================================================== */
+        .packages-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 4rem; }
+        @media (min-width: 768px) { .packages-grid { grid-template-columns: 1fr 1fr; } }
+        
+        .package-card {
+            background-color: var(--c-white); padding: 3rem; display: flex; flex-direction: column;
+            border: 1px solid #e0e0e0; position: relative; transition: transform 0.3s;
+        }
+        .package-card:hover { transform: translateY(-5px); }
+        .pkg-num { font-size: 0.8rem; color: var(--c-gold); font-family: var(--f-serif); margin-bottom: 1rem; }
+        .pkg-title { font-size: 1.5rem; margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.05em; }
+        .pkg-price { font-size: 2rem; font-family: var(--f-serif); margin-bottom: 2rem; }
+        .pkg-list { margin-bottom: 3rem; flex-grow: 1; }
+        .pkg-list li { padding: 0.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 0.95rem; }
+        .pkg-list li:last-child { border: none; }
+        
+        .pkg-rec { background-color: var(--c-green); color: var(--c-white); border: 1px solid var(--c-gold); }
+        .pkg-rec .pkg-list li { border-bottom-color: rgba(255,255,255,0.1); }
+        .pkg-tag {
+            position: absolute; top: -12px; right: 2rem; background-color: var(--c-gold); color: var(--c-green);
+            font-size: 0.65rem; padding: 0.2rem 1rem; text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        
+        .pkg-sig { background-color: var(--c-black); color: var(--c-white); border: none; }
+        .pkg-sig .pkg-list li { border-bottom-color: rgba(255,255,255,0.1); }
+
+        /* ==========================================================================
+           8. PAGE: PORTAFOLIO
+           ========================================================================== */
+        .masonry {
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;
+            grid-auto-rows: 200px;
+        }
+        .masonry-item { position: relative; overflow: hidden; cursor: crosshair; }
+        .masonry-item .ph-img { width: 100%; height: 100%; transition: transform 0.6s ease; }
+        .masonry-item:hover .ph-img { transform: scale(1.05); }
+        
+        .m-tag {
+            position: absolute; bottom: 1rem; left: 1rem; z-index: 2;
+            background: rgba(255,255,255,0.9); color: var(--c-green);
+            padding: 0.3rem 0.8rem; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        .m-num { position: absolute; top: 1rem; right: 1rem; z-index: 2; color: var(--c-white); font-family: var(--f-serif); }
+
+        @media (min-width: 768px) {
+            .masonry { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 250px; gap: 2rem; }
+            .item-1 { grid-column: span 2; grid-row: span 2; }
+            .item-2 { grid-column: span 2; grid-row: span 1; }
+            .item-3 { grid-column: span 1; grid-row: span 1; }
+            .item-4 { grid-column: span 1; grid-row: span 2; }
+            .item-5 { grid-column: span 3; grid-row: span 1; }
+            .item-6 { grid-column: span 1; grid-row: span 1; transform: translateY(-50px); }
+        }
+
+        /* ==========================================================================
+           9. PAGE: BLOG & ARTICLE
+           ========================================================================== */
+        .blog-home, .blog-article { transition: opacity 0.4s; }
+        .hidden-view { display: none !important; }
+        
+        .blog-card { display: flex; flex-direction: column; gap: 2rem; cursor: pointer; }
+        .blog-card .ph-img { height: 400px; }
+        @media (min-width: 768px) {
+            .blog-card { flex-direction: row; align-items: center; }
+            .blog-card .ph-img { width: 50%; height: 500px; }
+            .blog-card-info { width: 50%; padding: 0 3rem; }
+        }
+        
+        /* Article View */
+        .article-header { text-align: center; max-width: 800px; margin: 0 auto 4rem; }
+        .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; margin-bottom: 2rem; transition: color 0.3s; }
+        .back-link:hover { color: var(--c-gold); }
+        
+        .article-content { max-width: 720px; margin: 0 auto; font-size: 1.1rem; }
+        .article-content p { margin-bottom: 1.5rem; }
+        .article-content h3 { margin: 3rem 0 1rem; font-family: var(--f-serif); color: var(--c-green); }
+        .article-content .idea-num { color: var(--c-gold); font-size: 0.9rem; font-family: var(--f-sans); text-transform: uppercase; letter-spacing: 2px; display: block; margin-bottom: 0.5rem; }
+        .pull-quote { font-family: var(--f-serif); font-size: 1.8rem; line-height: 1.3; text-align: center; margin: 4rem 0; color: var(--c-gold); }
+        .article-ph { height: 400px; margin: 3rem 0; }
+
+        /* Comments & Stars */
+        .interaction-section { border-top: 1px solid rgba(9, 39, 41, 0.1); padding-top: 3rem; margin-top: 4rem; }
+        .stars { display: flex; gap: 0.5rem; font-size: 2rem; color: #ccc; cursor: pointer; margin-bottom: 2rem; }
+        .star { transition: color 0.2s; }
+        .star.active, .star:hover, .star:hover ~ .star { color: var(--c-gold); }
+        /* Reversar hover trick */
+        .stars { flex-direction: row-reverse; justify-content: flex-end; }
+        .star:hover, .star:hover ~ .star { color: var(--c-gold); }
+        
+        .comment-form { display: grid; gap: 1rem; max-width: 500px; margin-bottom: 3rem; }
+        .form-control { width: 100%; padding: 1rem; border: 1px solid rgba(9,39,41,0.2); background: transparent; font-family: inherit; font-size: 1rem; }
+        .form-control:focus { outline: none; border-color: var(--c-gold); }
+        textarea.form-control { resize: vertical; min-height: 100px; }
+        
+        .comments-list { display: flex; flex-direction: column; gap: 1.5rem; }
+        .comment-item { background: var(--c-white); padding: 1.5rem; border-radius: 4px; }
+        .comment-name { font-weight: 500; margin-bottom: 0.5rem; display: flex; justify-content: space-between;}
+        .comment-date { font-size: 0.8rem; opacity: 0.6; font-weight: normal; }
+
+        /* Voces Revela (Real Avatars) */
+        .testimonials { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; }
+        @media (min-width: 768px) { .testimonials { grid-template-columns: repeat(3, 1fr); } }
+        .test-card { text-align: center; }
+        .avatar { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1rem; }
+        .stars-static { color: var(--c-gold); font-size: 1.2rem; margin-bottom: 1rem; }
+
+        /* ==========================================================================
+           10. PAGE: CONTACTO
+           ========================================================================== */
+        .contact-layout { display: grid; grid-template-columns: 1fr; gap: 4rem; }
+        @media (min-width: 768px) { .contact-layout { grid-template-columns: 1fr 1fr; } }
+        
+        .contact-form { display: grid; gap: 1.5rem; }
+        .contact-info { padding: 3rem; background-color: var(--c-sand); }
+        .social-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem; }
+        .social-links a { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; border-bottom: 1px solid transparent; transition: border 0.3s; }
+        .social-links a:hover { border-bottom-color: var(--c-green); }
+        
+        .map-wrap { margin-top: 4rem; width: 100%; height: 400px; background: #e0e0e0; position: relative; }
+        .map-iframe { width: 100%; height: 100%; border: none; }
+
+        /* ==========================================================================
+           11. FOOTER
+           ========================================================================== */
+        footer { padding: 4rem 5% 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 4rem; }
+        @media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(4, 1fr); } }
+        
+        .footer-col h4 { font-size: 1rem; margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.6; }
+        .footer-col ul { display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-col a { transition: color 0.3s; }
+        .footer-col a:hover { color: var(--c-gold); }
+        .footer-phrase { font-size: 2rem; line-height: 1.2; }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;
+            display: flex; flex-direction: column; gap: 1rem; text-align: center; font-size: 0.8rem; opacity: 0.5;
+        }
+        @media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
+    </style>
+</head>
+<body>
+
+    <!-- SPA Container -->
+    <div id="app">
+
+        <!-- HEADER -->
+        <header id="main-header" class="light-mode">
+            <div class="nav-container">
+                <a href="#inicio" class="logo-wrap" aria-label="Ir a inicio">
+                    <span class="logo">REVELA</span>
+                    <span class="logo-sub">FLORERÍA EXPERIENCIAL</span>
+                </a>
+
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#experiencias">Experiencias</a></li>
+                        <li><a href="#portafolio">Portafolio</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+
+                <a href="https://wa.me/51917998121" target="_blank" rel="noopener noreferrer" class="header-cta">Hablemos</a>
+
+                <div class="hamburger" id="hamburger" aria-label="Menú móvil">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </header>
+
+        <!-- MOBILE NAV -->
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#experiencias">Experiencias</a></li>
+                <li><a href="#portafolio">Portafolio</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <a href="https://wa.me/51917998121" target="_blank" rel="noopener noreferrer" class="btn btn-green">Consultar por WhatsApp</a>
+        </div>
+
+        <!-- ==========================================
+             PÁGINA: INICIO
+             ========================================== -->
+        <section id="inicio" class="page-section active">
+            <!-- Hero -->
+            <div class="hero">
+                <div class="hero-bg">
+                    <img src="https://lh3.googleusercontent.com/d/1M4j12TwlmVayQWiErcyzCplkER6J28Ex" alt="Fotografía editorial de gran formato" class="hero-ph" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;">
+                </div>
+                <div class="hero-content bg-green">
+                    <p class="text-small reveal">Arequipa, Perú</p>
+                    <h1 class="reveal delay-1">Floristería & fotografía para <span class="serif gold-text">momentos que no se marchitan</span>.</h1>
+                    <p class="reveal delay-2">Creamos experiencias florales personalizadas que convierten celebraciones especiales en recuerdos duraderos.</p>
+                    <div class="hero-btns reveal delay-2">
+                        <a href="#experiencias" class="btn btn-gold">Descubrir experiencias <span class="arrow">↗</span></a>
+                        <a href="https://wa.me/51917998121" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Consultar por WhatsApp</a>
+                    </div>
+                </div>
+                <div class="scroll-indicator">
+                    <div class="scroll-line"></div> Scroll para descubrir
+                </div>
+            </div>
+
+            <!-- Bloque Editorial -->
+            <div class="section-pad">
+                <div class="container ed-block-wrap">
+                    <div class="ed-text reveal">
+                        <p class="text-small">Más que flores</p>
+                        <h2>Diseñamos el escenario de un <span class="serif gold-text">recuerdo</span>.</h2>
+                        <p class="text-body mt-2">Cada experiencia REVELA une diseño floral, ambientación y fotografía para convertir una ocasión especial en una historia que puedas volver a mirar.</p>
+                        
+                        <ul class="ed-list">
+                            <li><span class="num">01</span> Diseño floral de autor</li>
+                            <li><span class="num">02</span> Ambientación de espacios</li>
+                            <li><span class="num">03</span> Fotografía artística</li>
+                        </ul>
+                    </div>
+                    <div class="ed-images reveal delay-1">
+                        <img src="https://lh3.googleusercontent.com/d/1JiIPBFUbsxY2lDGpZ-cutMg4tnPgx5lZ" alt="Escenario de un recuerdo" class="ed-img-1" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;">
+                        <img src="https://lh3.googleusercontent.com/d/15cS4hVkKaNZEcBxKguRPA2CYBjI52ihn" alt="Detalle" class="ed-img-2" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experiencias Destacadas -->
+            <div class="bg-green section-pad">
+                <div class="container">
+                    <div class="text-center reveal">
+                        <h2>Una experiencia para<br><span class="serif gold-text">cada historia</span>.</h2>
+                    </div>
+                    
+                    <div class="exp-cards">
+                        <div class="exp-card reveal">
+                            <h3>Esencial</h3>
+                            <p>Ramo personalizado, ambientación básica y sesión corta para conservar el instante.</p>
+                            <a href="#experiencias" class="exp-link">Ver detalles <span>→</span></a>
+                        </div>
+                        <div class="exp-card reveal delay-1">
+                            <h3>Emoción</h3>
+                            <p>Diseño premium, ambientación especial y sesión completa con fotografías impresas.</p>
+                            <a href="#experiencias" class="exp-link">Ver detalles <span>→</span></a>
+                        </div>
+                        <div class="exp-card reveal delay-2" style="border-color: var(--c-gold);">
+                            <h3 class="gold-text">Signature REVELA</h3>
+                            <p>La experiencia definitiva. Diseño de autor, galería privada y asesoría visual completa.</p>
+                            <a href="#experiencias" class="exp-link">Ver detalles <span>→</span></a>
+                        </div>
+                    </div>
+                    <div class="text-center reveal" style="margin-top: 3rem;">
+                        <a href="#experiencias" class="btn btn-gold">Descubrir todas las experiencias</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="section-pad text-center">
+                <div class="container reveal">
+                    <h2>¿Hay un momento que quieras hacer <span class="serif gold-text">inolvidable</span>?</h2>
+                    <br>
+                    <a href="https://wa.me/51917998121" target="_blank" rel="noopener noreferrer" class="btn btn-green">Cuéntanos tu idea <span class="arrow">↗</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PÁGINA: NOSOTROS
+             ========================================== -->
+        <section id="nosotros" class="page-section">
+            <div class="page-header container reveal">
+                <p class="text-small mb-1">Sobre Revela</p>
+                <h1>Nuestra <span class="serif gold-text">historia</span></h1>
+                <p class="text-small mt-2" style="opacity:0.5;">Arequipa · Perú</p>
+            </div>
+
+            <div class="container story-layout section-pad">
+                <div class="text-col reveal">
+                    <span class="big-number">01</span>
+                    <div class="story-text">
+                        <p class="text-body">REVELA nace en Arequipa con la intención de transformar el acto de regalar flores en una experiencia más significativa. La marca surge para unir la belleza de la botánica, la ambientación de espacios y la fotografía artística, creando momentos que no solo se viven, sino que también se conservan como recuerdos visuales.</p>
+                    </div>
+                </div>
+                <div class="story-img-wrap reveal delay-1">
+                    <img src="https://lh3.googleusercontent.com/d/1NtqW6XGZtBALuZ_ScOBnRksxy8cu05LB" alt="Fotografía en estudio" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <div class="mission-vision">
+                <div class="mv-block bg-green reveal">
+                    <img src="https://lh3.googleusercontent.com/d/1EMhKPKcBi92W3jpe1-ym7F7-WM2SqXqP" alt="Detalle floral" class="mv-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;">
+                    <div class="container">
+                        <p class="text-small gold-text mb-1">02</p>
+                        <h2>Misión</h2>
+                        <br>
+                        <p class="text-body">Crear experiencias florales personalizadas que integren flores de autor, ambientación y fotografía artística, ayudando a las personas a celebrar sus momentos especiales de una manera emocional, estética y memorable.</p>
+                    </div>
+                </div>
+                <div class="mv-block bg-sand reveal">
+                    <img src="https://lh3.googleusercontent.com/d/1vi1scianiNGKnzw3yBwP0qTmWX582lER" alt="Proceso creativo" class="mv-img left" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;">
+                    <div class="container" style="text-align: right;">
+                        <p class="text-small mb-1">03</p>
+                        <h2>Visión</h2>
+                        <br>
+                        <p class="text-body">Ser una marca referente en Arequipa por renovar la forma tradicional de regalar flores, convirtiéndose en un referente de experiencias florales y fotográficas con enfoque artístico, emocional y visualmente distintivo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="manifesto bg-black reveal">
+                <div class="container">
+                    <h2>No queremos entregar solo flores.<br>Queremos <span class="serif gold-text">revelar un momento</span>.</h2>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PÁGINA: SERVICIOS
+             ========================================== -->
+        <section id="servicios" class="page-section">
+            <div class="page-header container text-center reveal">
+                <p class="text-small mb-1">Detalles que permanecen</p>
+                <h1>Complementa<br>tu <span class="serif gold-text">experiencia</span></h1>
+                <p class="text-body mt-2">Pequeños detalles capaces de extender la emoción más allá del momento.</p>
+            </div>
+
+            <div class="container section-pad pt-0">
+                
+                <div class="service-item reveal">
+                    <img src="https://lh3.googleusercontent.com/d/1A1n85Rg-MayTC6D9tOVhJaMKD3vGBor4" alt="Fotografía impresa" class="service-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;">
+                    <div class="service-info">
+                        <div class="service-num">01</div>
+                        <h3>Fotografía impresa</h3>
+                        <p class="text-body mt-1 mb-2">Recuerdo físico en papel fine art para conservar tu momento en el tiempo.</p>
+                        <a href="https://wa.me/51917998121?text=Hola,%20quisiera%20consultar%20por%20el%20servicio%20de%20Fotograf%C3%ADa%20impresa." target="_blank" class="btn btn-green">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="service-item reveal">
+                    <img src="https://lh3.googleusercontent.com/d/1uMeVt17_JIv4_MvOFLBZOHnFjlwejMqH" alt="Tarjeta personalizada premium" class="service-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;">
+                    <div class="service-info">
+                        <div class="service-num">02</div>
+                        <h3>Tarjeta personalizada premium</h3>
+                        <p class="text-body mt-1 mb-2">Dedicatoria especial diseñada e impresa en alta calidad para la ocasión.</p>
+                        <a href="https://wa.me/51917998121?text=Hola,%20quisiera%20consultar%20por%20la%20Tarjeta%20personalizada." target="_blank" class="btn btn-green">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="service-item reveal">
+                    <img src="https://lh3.googleusercontent.com/d/1WgoCUhFir_F07Y3TIwfwoC_Rms9LitZy" alt="Reel corto tipo recuerdo" class="service-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80';">
+                    <div class="service-info">
+                        <div class="service-num">03</div>
+                        <h3>Reel corto tipo recuerdo</h3>
+                        <p class="text-body mt-1 mb-2">Video emocional en formato vertical, editado y listo para compartir en redes sociales.</p>
+                        <a href="https://wa.me/51917998121?text=Hola,%20quisiera%20consultar%20por%20el%20Reel%20corto." target="_blank" class="btn btn-green">Consultar</a>
+                    </div>
+                </div>
+
+                <div class="service-item reveal">
+                    <img src="https://lh3.googleusercontent.com/d/1vgvDImBByi_BD8fM8s7S6fV_g4GTJNrR" alt="Ramo aniversario" class="service-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;">
+                    <div class="service-info">
+                        <div class="service-num">04</div>
+                        <h3>Ramo aniversario</h3>
+                        <p class="text-body mt-1 mb-2">Un arreglo floral inspirado conceptualmente en la primera experiencia vivida en REVELA.</p>
+                        <a href="https://wa.me/51917998121?text=Hola,%20quisiera%20consultar%20por%20el%20Ramo%20aniversario." target="_blank" class="btn btn-green">Consultar</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PÁGINA: EXPERIENCIAS
+             ========================================== -->
+        <section id="experiencias" class="page-section bg-green">
+            <div class="page-header container text-center reveal">
+                <p class="text-small mb-1 gold-text">Nuestras Experiencias</p>
+                <h1>Elige el paquete que mejor<br>se adapte a <span class="serif gold-text">tu momento</span></h1>
+                <p class="text-body mt-2" style="opacity: 0.8;">Opciones diseñadas para hacer inolvidable cada celebración.</p>
+            </div>
+
+            <div class="container section-pad pt-0">
+                <div class="packages-grid">
+                    
+                    <div class="package-card pkg-rec reveal">
+                        <div class="pkg-num white-text">01 — BÁSICO</div>
+                        <h3 class="pkg-title">Esencial</h3>
+                        <div class="pkg-price gold-text">S/ 500</div>
+                        <ul class="pkg-list">
+                            <li>Ramo floral personalizado</li>
+                            <li>Ambientación básica</li>
+                            <li>Sesión fotográfica corta</li>
+                            <li>Fotografías digitales (Alta req.)</li>
+                        </ul>
+                        <a href="https://wa.me/51917998121?text=Hola%20REVELA,%20me%20interesa%20la%20experiencia%20ESENCIAL%20de%20S/%20500.%20Quisiera%20recibir%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="btn btn-gold text-center" style="width: 100%; justify-content: center;">Quiero esta experiencia</a>
+                    </div>
+
+                    <div class="package-card pkg-rec reveal delay-1">
+                        <div class="pkg-num white-text">02 — INTERMEDIO</div>
+                        <h3 class="pkg-title">Emoción</h3>
+                        <div class="pkg-price gold-text">S/ 750</div>
+                        <ul class="pkg-list">
+                            <li>Ramo floral premium</li>
+                            <li>Ambientación especial</li>
+                            <li>Sesión fotográfica completa</li>
+                            <li>Fotografías digitales</li>
+                            <li>1 foto impresa fine art</li>
+                        </ul>
+                        <a href="https://wa.me/51917998121?text=Hola%20REVELA,%20me%20interesa%20la%20experiencia%20EMOCI%C3%93N%20de%20S/%20750.%20Quisiera%20recibir%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="btn btn-gold text-center" style="width: 100%; justify-content: center;">Quiero esta experiencia</a>
+                    </div>
+
+                    <div class="package-card pkg-rec reveal">
+                        <div class="pkg-tag">Recomendado</div>
+                        <div class="pkg-num white-text">03 — AVANZADO</div>
+                        <h3 class="pkg-title">Recuerdo</h3>
+                        <div class="pkg-price gold-text">S/ 950</div>
+                        <ul class="pkg-list">
+                            <li>Ramo floral premium</li>
+                            <li>Ambientación personalizada</li>
+                            <li>Sesión fotográfica artística</li>
+                            <li>Fotografías digitales HD</li>
+                            <li>Fotos impresas (Pack)</li>
+                            <li>Asesoría visual</li>
+                        </ul>
+                        <a href="https://wa.me/51917998121?text=Hola%20REVELA,%20me%20interesa%20la%20experiencia%20RECUERDO%20de%20S/%20950.%20Quisiera%20recibir%20m%C3%A1s%20informaci%C3%B3n." target="_blank" class="btn btn-gold text-center" style="width: 100%; justify-content: center;">Quiero esta experiencia</a>
+                    </div>
+
+                    <div class="package-card pkg-sig reveal delay-1">
+                        <div class="pkg-num gold-text">04 — PREMIUM</div>
+                        <h3 class="pkg-title gold-text">Signature Revela</h3>
+                        <div class="pkg-price">S/ 1,250</div>
+                        <ul class="pkg-list">
+                            <li>Diseño floral de autor exclusivo</li>
+                            <li>Ambientación premium in-situ</li>
+                            <li>Sesión artística extendida</li>
+                            <li>Galería digital privada</li>
+                            <li>Photobook impreso</li>
+                            <li>Atención y planificación VIP</li>
+                        </ul>
+                        <a href="https://wa.me/51917998121?text=Hola%20REVELA,%20me%20interesa%20la%20experiencia%20SIGNATURE%20de%20S/%201,250.%20Quisiera%20recibir%20atenci%C3%B3n%20personalizada." target="_blank" class="btn btn-outline text-center" style="width: 100%; justify-content: center;">Quiero esta experiencia</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PÁGINA: PORTAFOLIO
+             ========================================== -->
+        <section id="portafolio" class="page-section">
+            <div class="page-header container text-center reveal">
+                <p class="text-small mb-1">Portafolio</p>
+                <h1>Historias que hemos<br>ayudado a <span class="serif gold-text">revelar</span></h1>
+                <p class="text-body mt-2">Cada celebración tiene una forma distinta de sentirse, verse y recordarse.</p>
+            </div>
+
+            <div class="container section-pad pt-0">
+                <div class="masonry">
+                    <div class="masonry-item item-1 reveal">
+                        <img src="https://drive.google.com/uc?export=download&id=1cq4CxuqMrTV9FWBeTrjr9J4sf21hnIST" alt="Sesión Pedida de Mano" class="ph-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1cq4CxuqMrTV9FWBeTrjr9J4sf21hnIST';">
+                        <span class="m-tag">PEDIDA</span><span class="m-num">01</span>
+                    </div>
+                    <div class="masonry-item item-2 reveal delay-1">
+                        <img src="https://drive.google.com/uc?export=download&id=1XqpmSSAxg6IakRog2yyFIom4bwXUGRCG" alt="Detalle floral mesa" class="ph-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1XqpmSSAxg6IakRog2yyFIom4bwXUGRCG';">
+                        <span class="m-tag">AMBIENTACIÓN</span><span class="m-num">02</span>
+                    </div>
+                    <div class="masonry-item item-3 reveal">
+                        <img src="https://drive.google.com/uc?export=download&id=1YxxT_l5WKa6jcqlwTWauA5bp5EPeX1WU" alt="Retrato Celebración" class="ph-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1YxxT_l5WKa6jcqlwTWauA5bp5EPeX1WU';">
+                        <span class="m-tag">CELEBRACIÓN</span><span class="m-num">03</span>
+                    </div>
+                    <div class="masonry-item item-4 reveal delay-1">
+                        <img src="https://drive.google.com/uc?export=download&id=1Zicdk-fvDAPEprhybIyjWHrj2RIdRIZD" alt="Aniversario pareja" class="ph-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1Zicdk-fvDAPEprhybIyjWHrj2RIdRIZD';">
+                        <span class="m-tag">ANIVERSARIO</span><span class="m-num">04</span>
+                    </div>
+                    <div class="masonry-item item-5 reveal delay-2">
+                        <img src="https://drive.google.com/uc?export=download&id=1T4WqqMCUtSDyeEooNxv33m_sVjvDY80a" alt="Panorámica evento" class="ph-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1T4WqqMCUtSDyeEooNxv33m_sVjvDY80a';">
+                        <span class="m-tag">MOMENTO REVELA</span><span class="m-num">05</span>
+                    </div>
+                    <div class="masonry-item item-6 reveal">
+                        <img src="https://drive.google.com/uc?export=download&id=1XqpmSSAxg6IakRog2yyFIom4bwXUGRCG" alt="Ramo detalle" class="ph-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1XqpmSSAxg6IakRog2yyFIom4bwXUGRCG';">
+                        <span class="m-tag">DETALLE</span><span class="m-num">06</span>
+                    </div>
+                </div>
+
+                <div class="text-center section-pad">
+                    <h2>¿Quieres crear la próxima historia?</h2>
+                    <br>
+                    <a href="https://wa.me/51917998121" target="_blank" class="btn btn-green">Ver más experiencias <span class="arrow">↗</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PÁGINA: BLOG & ARTÍCULO
+             ========================================== -->
+        <section id="blog" class="page-section">
+            
+            <!-- VISTA HOME DEL BLOG -->
+            <div id="blog-home" class="blog-home">
+                <div class="page-header container reveal">
+                    <p class="text-small mb-1">Journal Revela</p>
+                    <h1>Ideas para celebrar,<br>recordar y <span class="serif gold-text">sentir</span>.</h1>
+                </div>
+
+                <div class="container section-pad pt-0">
+                    <div class="blog-card reveal" onclick="openArticle()">
+                        <img src="https://drive.google.com/uc?export=download&id=1jNBpE0Q3zXGjslvHAI_G9mHunrpgpmhm" alt="Fotografía editorial pareja" class="ph-img" referrerpolicy="no-referrer" crossorigin="anonymous" style="object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1jNBpE0Q3zXGjslvHAI_G9mHunrpgpmhm';">
+                        <div class="blog-card-info">
+                            <p class="text-small mb-1">INSPIRACIÓN · 5 MIN LECTURA</p>
+                            <h2>5 ideas para celebrar un aniversario de una forma diferente</h2>
+                            <p class="text-body mt-2 mb-2">Ideas para transformar una fecha especial en una experiencia que realmente puedan recordar.</p>
+                            <button class="btn btn-gold mt-2">Leer artículo <span class="arrow">↗</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISTA ARTÍCULO COMPLETO -->
+            <div id="blog-article" class="blog-article hidden-view section-pad">
+                <div class="container">
+                    <button class="back-link" onclick="closeArticle()">← Volver al blog</button>
+                    
+                    <div class="article-header reveal">
+                        <p class="text-small mb-1">INSPIRACIÓN</p>
+                        <h1>5 ideas para celebrar un aniversario de una forma diferente</h1>
+                    </div>
+
+                    <div class="article-content reveal delay-1">
+                        <p>Un aniversario no debería sentirse como repetir la misma cena, el mismo regalo y la misma fotografía cada año. La fecha puede convertirse en una oportunidad para detenerse, recordar lo que han construido juntos y crear una nueva memoria.</p>
+                        
+                        <img src="https://drive.google.com/uc?export=download&id=1vi1scianiNGKnzw3yBwP0qTmWX582lER" alt="Cena romántica alternativa" class="article-ph" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1vi1scianiNGKnzw3yBwP0qTmWX582lER';">
+
+                        <span class="idea-num">Idea 01</span>
+                        <h3>Recrear simbólicamente su primera cita</h3>
+                        <p>No se trata de ir al mismo lugar exacto, sino de reinterpretarlo. Si fue en un café, puedes crear una estación de café premium en casa con ambientación floral y la misma música que sonaba ese día. El detalle está en la nostalgia elevada.</p>
+                        
+                        <span class="idea-num">Idea 02</span>
+                        <h3>Crear una experiencia sorpresa en un lugar inesperado</h3>
+                        <p>Transformar una terraza vacía, el jardín de casa o una habitación con iluminación cálida y flores de autor cambia completamente la percepción del espacio. Lo familiar se vuelve extraordinario.</p>
+
+                        <div class="pull-quote">"El mejor aniversario es aquel capaz de recordarles por qué decidieron compartir su historia."</div>
+
+                        <span class="idea-num">Idea 03</span>
+                        <h3>Crear una cápsula del tiempo de la relación</h3>
+                        <p>Tómense un momento para recolectar fotografías, entradas de cine, escribir cartas al futuro y guardarlas en una caja curada estéticamente. Propongan abrirla en 3 o 5 años. Es un regalo hacia su yo del futuro.</p>
+
+                        <span class="idea-num">Idea 04</span>
+                        <h3>Una sesión fotográfica que cuente su historia</h3>
+                        <p>Eviten las poses rígidas. Una buena fotografía editorial de pareja captura gestos reales, miradas genuinas y la dinámica real entre ustedes. Vístanse cómodos pero elegantes, y dejen que el momento fluya.</p>
+
+                        <span class="idea-num">Idea 05</span>
+                        <h3>Regalar una experiencia, no solamente un objeto</h3>
+                        <p>Combina un elemento físico (un ramo de diseño) con algo intangible (una lista de reproducción curada, una cena hecha en casa, o una tarde sin teléfonos). Las experiencias generan anclajes emocionales mucho más fuertes que los objetos.</p>
+
+                        <img src="https://drive.google.com/uc?export=download&id=1qal9KTsR7YiOo7s762PT6MgTu7Vf-Wt0" alt="Detalle de manos entrelazadas" class="article-ph" referrerpolicy="no-referrer" crossorigin="anonymous" style="width: 100%; object-fit: cover;" onerror="this.onerror=null; this.src='https://lh3.googleusercontent.com/d/1qal9KTsR7YiOo7s762PT6MgTu7Vf-Wt0';">
+
+                        <div class="text-center mt-4">
+                            <p class="text-body mb-2">¿Quieres crear una experiencia diferente para tu aniversario?</p>
+                            <a href="https://wa.me/51917998121" target="_blank" class="btn btn-green">Cuéntanos tu historia <span class="arrow">↗</span></a>
+                        </div>
+                    </div>
+
+                    <!-- Sistema de Comentarios y Estrellas -->
+                    <div class="interaction-section reveal">
+                        <div style="max-width: 720px; margin: 0 auto;">
+                            <h3>¿Qué te pareció este artículo?</h3>
+                            
+                            <div class="stars" id="star-rating">
+                                <span class="star" data-value="5">★</span>
+                                <span class="star" data-value="4">★</span>
+                                <span class="star" data-value="3">★</span>
+                                <span class="star" data-value="2">★</span>
+                                <span class="star" data-value="1">★</span>
+                            </div>
+
+                            <form class="comment-form" id="comment-form">
+                                <input type="text" id="c-name" class="form-control" placeholder="Tu nombre" required>
+                                <textarea id="c-text" class="form-control" placeholder="Deja un comentario..." required></textarea>
+                                <button type="submit" class="btn btn-green" style="justify-self: start;">Publicar comentario</button>
+                            </form>
+
+                            <div class="comments-list" id="comments-container">
+                                <!-- Comentarios dinámicos -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Satisfacción (Voces Revela) -->
+                    <div class="section-pad" style="border-top: 1px solid rgba(0,0,0,0.1); margin-top: 4rem;">
+                        <div class="text-center reveal">
+                            <p class="text-small mb-1">Voces Revela</p>
+                            <h2>Momentos que dejaron<br>algo más que <span class="serif gold-text">flores</span>.</h2>
+                        </div>
+                        
+                        <div class="testimonials reveal delay-1">
+                            <div class="test-card">
+                                <img src="https://i.pravatar.cc/150?img=47" alt="Mariana R." class="avatar">
+                                <div class="stars-static">★★★★★</div>
+                                <p class="text-body">“Todo se sintió pensado para nosotros. Cuando recibimos las fotografías entendimos que no habíamos comprado solo flores.”</p>
+                                <p class="text-small mt-1">Mariana R.</p>
+                            </div>
+                            <div class="test-card">
+                                <img src="https://i.pravatar.cc/150?img=33" alt="Andrea & Luis" class="avatar">
+                                <div class="stars-static">★★★★★</div>
+                                <p class="text-body">“La ambientación hizo que un espacio sencillo pareciera completamente diferente. Fue mágico.”</p>
+                                <p class="text-small mt-1">Andrea & Luis</p>
+                            </div>
+                            <div class="test-card">
+                                <img src="https://i.pravatar.cc/150?img=49" alt="Camila M." class="avatar">
+                                <div class="stars-static">★★★★★</div>
+                                <p class="text-body">“Lo que más me gustó fue poder conservar el momento impreso después de que terminó la sorpresa.”</p>
+                                <p class="text-small mt-1">Camila M.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================
+             PÁGINA: CONTACTO
+             ========================================== -->
+        <section id="contacto" class="page-section">
+            <div class="bg-green">
+                <div class="page-header container reveal" style="padding-bottom: 2rem;">
+                    <h1>Contacto</h1>
+                    <p class="text-body mt-1">Cuéntanos tu ocasión y recibe una recomendación personalizada.</p>
+                    <p class="text-small mt-1 gold-text">Arequipa · Perú</p>
+                </div>
+            </div>
+
+            <div class="container section-pad">
+                <div class="contact-layout">
+                    <!-- Formulario -->
+                    <div class="reveal">
+                        <h2 style="margin-bottom: 2rem;">Cuéntanos<br>qué quieres celebrar.</h2>
+                        
+                        <form class="contact-form" id="contact-form">
+                            <div>
+                                <label for="wa-name" class="text-small">Nombre completo</label>
+                                <input type="text" id="wa-name" class="form-control mt-1" required>
+                            </div>
+                            <div>
+                                <label for="wa-num" class="text-small">Número de WhatsApp</label>
+                                <input type="tel" id="wa-num" class="form-control mt-1" required>
+                            </div>
+                            <div class="grid-2" style="gap:1rem; grid-template-columns: 1fr 1fr;">
+                                <div>
+                                    <label for="wa-type" class="text-small">Tipo de celebración</label>
+                                    <select id="wa-type" class="form-control mt-1" required>
+                                        <option value="" disabled selected>Seleccionar...</option>
+                                        <option value="Aniversario">Aniversario</option>
+                                        <option value="Cumpleaños">Cumpleaños</option>
+                                        <option value="Pedida">Pedida de mano</option>
+                                        <option value="Sorpresa">Sorpresa</option>
+                                        <option value="Otro">Otro</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="wa-date" class="text-small">Fecha aproximada</label>
+                                    <input type="date" id="wa-date" class="form-control mt-1" required>
+                                </div>
+                            </div>
+                            <div>
+                                <label for="wa-msg" class="text-small">Mensaje opcional</label>
+                                <textarea id="wa-msg" class="form-control mt-1" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-green mt-1" style="justify-self: start;">Enviar consulta <span class="arrow">↗</span></button>
+                        </form>
+                    </div>
+
+                    <!-- Info -->
+                    <div class="reveal delay-1">
+                        <div class="contact-info">
+                            <h3 class="mb-1">REVELA</h3>
+                            <p class="text-body mb-2">Florería Experiencial</p>
+                            
+                            <p class="text-body">Arequipa, Perú</p>
+                            <p class="text-body mt-2">WhatsApp:<br><strong>+51 917 998 121</strong></p>
+                            
+                            <div class="social-links">
+                                <a href="https://wa.me/51917998121" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                                <a href="https://instagram.com/revela.floreria.experiencial/" target="_blank" rel="noopener noreferrer">Instagram</a>
+                                <a href="https://tiktok.com/@revela.floreria.ex" target="_blank" rel="noopener noreferrer">TikTok</a>
+                                <a href="https://es.pinterest.com/revelafloreriaexperiencial/_profile/" target="_blank" rel="noopener noreferrer">Pinterest</a>
+                                <a href="https://www.facebook.com/profile.php?id=61593052067429&locale=es_LA" target="_blank" rel="noopener noreferrer">Facebook</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapa -->
+                <div class="reveal section-pad pt-0 mt-4">
+                    <div class="text-center mb-2">
+                        <h2>Encuéntranos</h2>
+                    </div>
+                    <div class="map-wrap">
+                        <iframe 
+                            src="https://drive.google.com/file/d/1k08EQx11oy--gK6AyqCMnv3lGEH_XI7i/preview" 
+                            title="Mapa de ubicación Arequipa"
+                            style="width: 100%; height: 100%; border: none;">
+                        </iframe>
+                    </div>
+                    <div class="text-center mt-2">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Mirador+de+Yanahuara+Arequipa" target="_blank" class="btn btn-outline" style="color: var(--c-green); border-color: var(--c-green);">Ver ubicación en Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="bg-black">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3 class="mb-1">REVELA</h3>
+                        <p class="text-small mb-2">Florería experiencial<br>Arequipa, Perú.</p>
+                        <p class="text-body" style="font-size: 0.9rem; opacity: 0.8;">Flores, ambientación y fotografía para momentos que merecen permanecer.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Explora</h4>
+                        <ul>
+                            <li><a href="#inicio">Inicio</a></li>
+                            <li><a href="#nosotros">Nosotros</a></li>
+                            <li><a href="#servicios">Servicios</a></li>
+                            <li><a href="#experiencias">Experiencias</a></li>
+                            <li><a href="#portafolio">Portafolio</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contacto</h4>
+                        <ul>
+                            <li><a href="https://wa.me/51917998121" target="_blank">WhatsApp</a></li>
+                            <li><a href="https://instagram.com/revela.floreria.experiencial/" target="_blank">Instagram</a></li>
+                            <li><a href="https://tiktok.com/@revela.floreria.ex" target="_blank">TikTok</a></li>
+                            <li><a href="https://es.pinterest.com/revelafloreriaexperiencial/_profile/" target="_blank">Pinterest</a></li>
+                            <li><a href="https://www.facebook.com/profile.php?id=61593052067429&locale=es_LA" target="_blank">Facebook</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <p class="footer-phrase">Momentos que<br><span class="serif gold-text">no se marchitan.</span></p>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>© 2026 REVELA FLORERÍA EXPERIENCIAL</p>
+                    <p>Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            /* ==========================================
+               1. NAVEGACIÓN SPA & ESTADO
+               ========================================== */
+            const sections = document.querySelectorAll('.page-section');
+            const navLinks = document.querySelectorAll('nav a, .mobile-nav a, .logo-wrap');
+            const header = document.getElementById('main-header');
+            
+            // Función para cambiar de página
+            function navigateTo(hash) {
+                if (!hash || hash === '#') hash = '#inicio';
+                
+                // Si el hash es #articulo, forzamos la vista a #blog pero mostramos el artículo
+                const targetId = hash === '#articulo' ? 'blog' : hash.substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    // Ocultar todas las secciones
+                    sections.forEach(sec => sec.classList.remove('active'));
+                    // Mostrar target
+                    targetSection.classList.add('active');
+                    
+                    // Manejo especial para el Blog/Articulo
+                    if (targetId === 'blog') {
+                        if(hash === '#articulo') {
+                            document.getElementById('blog-home').classList.add('hidden-view');
+                            document.getElementById('blog-article').classList.remove('hidden-view');
+                        } else {
+                            document.getElementById('blog-home').classList.remove('hidden-view');
+                            document.getElementById('blog-article').classList.add('hidden-view');
+                        }
+                    }
+
+                    // Scroll to top
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Actualizar estado del header visualmente
+                    updateHeaderStyle(targetId);
+                    updateActiveNav(hash);
+                    
+                    // Re-trigger animaciones
+                    initAnimations();
+                }
+            }
+
+            // Escuchar cambios de URL
+            window.addEventListener('hashchange', () => navigateTo(window.location.hash));
+            
+            // Navegación inicial
+            navigateTo(window.location.hash);
+
+            // Actualizar clase activa en enlaces
+            function updateActiveNav(hash) {
+                if(hash === '#articulo') hash = '#blog'; // Mantener blog activo
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === hash) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            /* ==========================================
+               2. HEADER & MENU MÓVIL
+               ========================================== */
+            const hamburger = document.getElementById('hamburger');
+            const mobileNav = document.getElementById('mobile-nav');
+
+            function toggleMobileMenu() {
+                hamburger.classList.toggle('active');
+                mobileNav.classList.toggle('active');
+                
+                if(mobileNav.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden'; // Prevenir scroll
+                } else {
+                    document.body.style.overflow = '';
+                }
+            }
+
+            hamburger.addEventListener('click', toggleMobileMenu);
+
+            // Cerrar menú al clickear un enlace
+            document.querySelectorAll('.mobile-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if(mobileNav.classList.contains('active')) toggleMobileMenu();
+                });
+            });
+
+            // Estilo dinámico del header según página y scroll
+            function updateHeaderStyle(pageId) {
+                // Páginas con fondo oscuro al inicio necesitan texto blanco
+                const darkPages = ['inicio', 'experiencias', 'contacto'];
+                if (darkPages.includes(pageId)) {
+                    header.classList.remove('light-mode');
+                } else {
+                    header.classList.add('light-mode');
+                }
+            }
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            /* ==========================================
+               3. ANIMACIONES (Intersection Observer)
+               ========================================== */
+            function initAnimations() {
+                const reveals = document.querySelectorAll('.page-section.active .reveal');
+                
+                const revealObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('active');
+                            observer.unobserve(entry.target); // Solo animar una vez
+                        }
+                    });
+                }, {
+                    root: null,
+                    threshold: 0.1,
+                    rootMargin: "0px 0px -50px 0px"
+                });
+
+                reveals.forEach(el => {
+                    el.classList.remove('active'); // Reset para re-animar al cambiar página
+                    revealObserver.observe(el);
+                });
+            }
+
+            /* ==========================================
+               4. LÓGICA DEL BLOG (Articulo y Comentarios)
+               ========================================== */
+            window.openArticle = function() {
+                window.location.hash = '#articulo';
+            };
+
+            window.closeArticle = function() {
+                window.location.hash = '#blog';
+            };
+
+            // Estrellas
+            const stars = document.querySelectorAll('.star');
+            let currentRating = 0;
+
+            stars.forEach(star => {
+                star.addEventListener('click', (e) => {
+                    currentRating = e.target.getAttribute('data-value');
+                    updateStars(currentRating);
+                });
+            });
+
+            function updateStars(value) {
+                stars.forEach(s => {
+                    if (s.getAttribute('data-value') <= value) {
+                        s.style.color = 'var(--c-gold)';
+                    } else {
+                        s.style.color = '#ccc';
+                    }
+                });
+            }
+
+            // Comentarios (Local Session)
+            const commentForm = document.getElementById('comment-form');
+            const commentsContainer = document.getElementById('comments-container');
+            
+            // Cargar comentarios previos (simulado con localStorage)
+            let comments = JSON.parse(localStorage.getItem('revela_comments')) || [];
+            renderComments();
+
+            commentForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('c-name').value;
+                const text = document.getElementById('c-text').value;
+                
+                if (name && text) {
+                    const newComment = {
+                        name: name,
+                        text: text,
+                        date: new Date().toLocaleDateString('es-ES', { year: 'numeric', month: 'short', day: 'numeric' }),
+                        rating: currentRating
+                    };
+                    
+                    comments.unshift(newComment); // Agregar al inicio
+                    localStorage.setItem('revela_comments', JSON.stringify(comments));
+                    
+                    renderComments();
+                    commentForm.reset();
+                    updateStars(0);
+                    currentRating = 0;
+                    
+                    // Scroll suave al comentario
+                    commentsContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            });
+
+            function renderComments() {
+                commentsContainer.innerHTML = '';
+                if(comments.length === 0) {
+                    commentsContainer.innerHTML = '<p class="text-body" style="opacity:0.5">Aún no hay comentarios. Sé el primero en opinar.</p>';
+                    return;
+                }
+                
+                comments.forEach(c => {
+                    let starsHtml = '';
+                    for(let i=0; i<5; i++) {
+                        starsHtml += `<span style="color: ${i < c.rating ? 'var(--c-gold)' : '#ccc'}">★</span>`;
+                    }
+
+                    const div = document.createElement('div');
+                    div.className = 'comment-item reveal active'; // Forzar active para que se vea
+                    div.innerHTML = `
+                        <div class="comment-name">
+                            <span>${c.name}</span>
+                            <span class="comment-date">${c.date}</span>
+                        </div>
+                        <div style="font-size: 0.8rem; margin-bottom: 0.5rem;">${starsHtml}</div>
+                        <p class="text-body">${c.text}</p>
+                    `;
+                    commentsContainer.appendChild(div);
+                });
+            }
+
+            /* ==========================================
+               5. FORMULARIO DE CONTACTO -> WHATSAPP & GOOGLE SHEETS
+               ========================================== */
+            // URL configurada de Google Apps Script
+            const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyVTaVP-Y10IYTrsW4lx1Gwm-MHt-KYd8TOhkqGgzScRrqpDwPR7XQzUadKrgekSdnlDw/exec';
+
+            const contactForm = document.getElementById('contact-form');
+            
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                
+                const name = document.getElementById('wa-name').value;
+                const phone = document.getElementById('wa-num').value;
+                const type = document.getElementById('wa-type').value;
+                const date = document.getElementById('wa-date').value;
+                const msg = document.getElementById('wa-msg').value;
+                
+                // 1. Enviar datos a Google Sheets de manera silenciosa en segundo plano
+                if (GOOGLE_SCRIPT_URL && GOOGLE_SCRIPT_URL !== 'TU_WEB_APP_URL_AQUI') {
+                    fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            nombre: name,
+                            whatsapp: phone,
+                            tipo: type,
+                            fecha: date,
+                            mensaje: msg
+                        })
+                    }).catch(error => console.error('Error guardando en Google Sheets:', error));
+                }
+
+                // 2. Construir mensaje de WhatsApp con el teléfono incluido
+                let textoWA = `Hola REVELA 👋\nMi nombre es ${name}.\nMi WhatsApp es ${phone}.\nMi celebración es ${type}.\nLa fecha aproximada es ${date}.\nQuisiera recibir una recomendación para mi ocasión.`;
+                
+                if (msg) {
+                    textoWA += `\n\nMensaje adicional:\n${msg}`;
+                }
+
+                // Codificar para URL y redirigir
+                const url = `https://wa.me/51917998121?text=${encodeURIComponent(textoWA)}`;
+                
+                // Abrir WhatsApp en nueva pestaña
+                window.open(url, '_blank');
+            });
+            
+        });
+    </script>
+</body>
+</html>
